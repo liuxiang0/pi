@@ -4,21 +4,29 @@
 import timeit
 from math import sin,radians
 
-def pi_gleibniz_series(up):
+def pi_GregoryLeibniz_series(up):
     """
-    pi = 4*(1-1/3+1/5-1/7+1/9-1/11+...)
+    π = 4*(1-1/3+1/5-1/7+1/9-1/11+...)
     Gregory-Leibniz Series
-    Result:
+    Result-1:
         time= 0.01116342400018766 n= 10000 pi= 3.1414926535900345
         time= 0.05287647299883247 n= 100000 pi= 3.1415826535897198
         time= 0.5135733970000729 n= 1000000 pi= 3.1415916535897743
         time= 5.146407479000118 n= 10000000 pi= 3.1415925535897915
+    Result-2:
+        elapsed time= 0.0003674100007629022 n= 10000 pi= 3.1413926535917893
+        elapsed time= 0.004349148000983405 n= 100000 pi= 3.141572653589808
+        elapsed time= 0.05806082999879436 n= 1000000 pi= 3.1415906535898936
+        elapsed time= 0.38916986000003817 n= 10000000 pi= 3.14159245358981
+        elapsed time= 4.1743483019999985 n= 100000000 pi= 3.1415926335405047
+    
     """
 
     s = 0
-    for i in range(up):
-        s += (-1)**i*4.0/(2.0*i+1.0)
-    return s
+    for i in range(1, up, 4):
+        #s += (-1)**i*4.0/(2.0*i+1.0)
+        s += 1.0/i - 1.0/(i+2.0)
+    return 4*s
 
 def pi_nilakantha_series(n):
     """
@@ -77,9 +85,10 @@ if __name__ == '__main__':
         stop = timeit.default_timer()
         print('elapsed time=', stop-start, 'n=', n, 'pi=', pi)
     """
-    for j in range(10,13):
+    for j in range(4,9):
         n = 10**j
         start = timeit.default_timer()
-        pi = pi_limit_sin(n)
+        pi = pi_GregoryLeibniz_series(n)
+        #pi = pi_limit_sin(n)
         stop = timeit.default_timer()
         print('elapsed time=', stop-start, 'n=', n, 'pi=', pi)
