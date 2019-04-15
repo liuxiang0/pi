@@ -113,3 +113,9 @@ The **Leibniz formula** for **π/4** can be obtained by putting $x = 1$ into the
 $$\frac{\pi}{4} = \sum_{n=0}^{\infty}\frac{(-1)^n}{2n+1} = \frac{1}{1}- \frac{1}{3}+ \frac{1}{5}- \frac{1}{7}+ \cdots.$$
 
 As you can see, this converges very slowly, with large, alternating over-estimates and under-estimates.
+
+## Nilakantha Series
+
+![Nilakantha Series for pi](Nilakantha_pi.jpg)
+
+$${\displaystyle {\begin{aligned} {\pi} \\&= 3+ \frac{4}{2 \centerdot 3 \centerdot 4}- \frac{4}{4 \centerdot 5 \centerdot 6}+ \frac{4}{6 \centerdot 7 \centerdot 8}- \frac{4}{8 \centerdot 9 \centerdot 10}+ \cdots \\&= 3+ \frac{1}{1 \centerdot 3 \centerdot 2}- \frac{1}{2 \centerdot 5 \centerdot 3}+ \frac{1}{3 \centerdot 7 \centerdot 4}- \frac{1}{4 \centerdot 9 \centerdot 5}+ \cdots \\&= 3+ \sum_{n=2}^{\infty} \frac{(-1)^n}{(n-1)n(2n-1)}  \end{aligned}}}$$
