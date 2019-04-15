@@ -2,7 +2,10 @@
 
 
 import timeit
-from math import sin,radians
+import math
+#from math import sin,radians,pi
+
+EPSON = 1e-4
 
 def half_pi(upper):
     """
@@ -33,11 +36,26 @@ def half_pi(upper):
     #print("upper=", upper, "half_π=",k)
     #print("upper=", upper, "π=", 2.0*k)
 
-if __name__ == '__main__':
+def get_half_pi(epson=EPSON):
+    k = 1
+    i = 1
+    while (abs(2*k-math.pi) > epson):
+        k = k*1.0/(1.0-1.0/(4.0*i*i))
+        i += 1
+    return 2*k
+
+def test_half_pi():
     upper=[500,1000,1500,2000,2500,3000,3500,4000,5000,10000,1000000]
     #upper = []
     for max in upper:
         start = timeit.default_timer()
-        pi = half_pi(max)
+        mypi = half_pi(max)
         stop = timeit.default_timer()
-        print('elapsed time=', stop-start, 'n=', max, 'π=', pi)
+        print('elapsed time=', stop-start, 'n=', max, 'π=', mypi)
+
+if __name__ == '__main__':
+    epson = EPSON*1e-6
+    start = timeit.default_timer()
+    mypi = get_half_pi(epson)
+    stop = timeit.default_timer()
+    print('elapsed time=', stop-start, 'epson=', epson, 'π=', mypi)

@@ -69,8 +69,7 @@ def pi_limit_sin(n):
     """
     return radians(n*sin(180.0/n))
 
-if __name__ == '__main__':
-    """
+def test_GregoryLeibniz():
     for j in range(4,8):
         n = 10**j
         start = timeit.default_timer()
@@ -84,11 +83,13 @@ if __name__ == '__main__':
         pi = pi_nilakantha_series(n)
         stop = timeit.default_timer()
         print('elapsed time=', stop-start, 'n=', n, 'pi=', pi)
-    """
+
+if __name__ == '__main__':
+
     for j in range(4,9):
         n = 10**j
         start = timeit.default_timer()
-        pi = pi_GregoryLeibniz_series(n)
+        mypi = pi_GregoryLeibniz_series(n)
         #pi = pi_limit_sin(n)
         stop = timeit.default_timer()
-        print('elapsed time=', stop-start, 'n=', n, 'pi=', pi)
+        print('elapsed time=', stop-start, 'n=', n, 'pi=', mypi)

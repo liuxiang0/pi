@@ -76,13 +76,39 @@ $${\displaystyle {\begin{aligned} sin(x) &= x {\prod_{k=1} ^{\infty} ({1- \frac{
 
 Let $x = \frac{π}{2}$, we get  
 
-$$\frac{π}{2} = \prod_{k=1} ^{\infty} \frac{4k^2}{4k^2-1} = \prod_{k=1} ^{\infty} \frac{1}{1- \frac{1}{4k^2}}$$
+$${\displaystyle {\begin{aligned} \frac{π}{2} &= \prod_{k=1} ^{\infty} \frac{4k^2}{4k^2-1} \\&= \prod_{k=1} ^{\infty} \frac{1}{1- \frac{1}{4k^2}} \\&=\frac{2}{1} \centerdot \frac{2}{3} \centerdot \frac{4}{3} \centerdot \frac{4}{5} \centerdot \frac{6}{5} \centerdot \frac{6}{7} \cdots \\&=\frac{4}{3} \centerdot \frac{16}{15} \centerdot \frac{36}{35} \centerdot \frac{64}{63} \cdots \end{aligned}}}$$
+
+see also [John Wallis product for π](https://en.wikipedia.org/wiki/Wallis_product)
 
 For the same reason,
 
 $${\displaystyle {\begin{aligned}cos(x)&=\prod_{k=1} ^{\infty} {(1 - \frac{2x}{(2k-1)π})} {(1 + \frac{2x}{(2k-1)π})}\\&=x \prod_{k=1} ^{\infty} {(1-\frac{4x^2}{(2k-1)^2 π^2})} \end{aligned}}}$$
 
+## Euler identify
+
+1. From Taylor expansion, we get
+
+$${\displaystyle {\begin{aligned} sin(x)&=x-\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots \end{aligned}}}$$
+
+2. From polynomial approximation theorem and equation solution, we get
+
+$${\displaystyle {\begin{aligned} sin(x)&= x \prod_{k=1} ^{\infty} (1- \frac{x^2}{(kπ)^2})  \end{aligned}}}$$
+
+3. Compare the degree 3 of x-term, we get the coefficients shoulb be equivalent.
+
+$${\displaystyle {\begin{aligned} \frac{1}{3!}&= \sum_{k=1} ^{\infty} \frac{1}{(kπ)^2}  \end{aligned}}}$$
+
+Therefore
+
+$${\displaystyle {\begin{aligned} \frac{π^2}{6}&= \sum_{k=1} ^{\infty} \frac{1}{k^2} &=1+\frac{1}{4}+\frac{1}{9}+\cdots + \frac{1}{n^2}+\cdots \end{aligned}}}$$
+
 ## Gregory-Leibniz series
+
+The series for the **inverse tangent** function, which is also known as **Gregory's series**, can be given by:
+
+$${\displaystyle \arctan x=x-{\frac {x^{3}}{3}}+{\frac {x^{5}}{5}}-{\frac {x^{7}}{7}}+\cdots }$$.
+
+The **Leibniz formula** for **π/4** can be obtained by putting $x = 1$ into the above inverse-tangent series.
 
 $$\frac{\pi}{4}=\sum_{n=0}^{\infty}\frac{(-1)^n}{2n+1}$$
 
