@@ -52,7 +52,7 @@ $${\displaystyle {\begin{aligned}sin(x)&=\sum _{n=0}^{\infty }{\frac {(-1)^nx^{2
 
 Of course, we can use Taylor expansion to get the above formula.
 
-$$sin^{2k}(x)=(-1)^k sin(x), sin^{2k+1}(x)=(-1)^k cos(x)$$
+$$sin^{(2k)}(x)= \frac{d^{(2k)}sin(x)}{dx}=(-1)^k sin(x), sin^{(2k+1)}(x)=(-1)^k cos(x)$$
 
 The even-th derivative function of $sin(x)$ at $x=0$ equals to 0, and odd-th derivative function of $sin(x)$ at $x=0$ equals to $(-1)^k$  
 
@@ -110,6 +110,6 @@ $${\displaystyle \arctan x=x-{\frac {x^{3}}{3}}+{\frac {x^{5}}{5}}-{\frac {x^{7}
 
 The **Leibniz formula** for **π/4** can be obtained by putting $x = 1$ into the above inverse-tangent series.
 
-$$\frac{\pi}{4}=\sum_{n=0}^{\infty}\frac{(-1)^n}{2n+1}$$
+$$\frac{\pi}{4} = \sum_{n=0}^{\infty}\frac{(-1)^n}{2n+1} = \frac{1}{1}- \frac{1}{3}+ \frac{1}{5}- \frac{1}{7}+ \cdots.$$
 
 As you can see, this converges very slowly, with large, alternating over-estimates and under-estimates.
