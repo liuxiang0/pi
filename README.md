@@ -118,4 +118,41 @@ As you can see, this converges very slowly, with large, alternating over-estimat
 
 ![Nilakantha Series for pi](Nilakantha_pi.jpg)
 
-$${\displaystyle {\begin{aligned} {\pi} \\&= 3+ \frac{4}{2 \centerdot 3 \centerdot 4}- \frac{4}{4 \centerdot 5 \centerdot 6}+ \frac{4}{6 \centerdot 7 \centerdot 8}- \frac{4}{8 \centerdot 9 \centerdot 10}+ \cdots \\&= 3+ \frac{1}{1 \centerdot 3 \centerdot 2}- \frac{1}{2 \centerdot 5 \centerdot 3}+ \frac{1}{3 \centerdot 7 \centerdot 4}- \frac{1}{4 \centerdot 9 \centerdot 5}+ \cdots \\&= 3+ \sum_{n=2}^{\infty} \frac{(-1)^n}{(n-1)n(2n-1)}  \end{aligned}}}$$
+$${\displaystyle {\begin{aligned} {\pi} &= 3+ \frac{4}{2 \centerdot 3 \centerdot 4}- \frac{4}{4 \centerdot 5 \centerdot 6}+ \frac{4}{6 \centerdot 7 \centerdot 8}- \frac{4}{8 \centerdot 9 \centerdot 10}+ \cdots \\&= 3+ \frac{1}{1 \centerdot 3 \centerdot 2}- \frac{1}{2 \centerdot 5 \centerdot 3}+ \frac{1}{3 \centerdot 7 \centerdot 4}- \frac{1}{4 \centerdot 9 \centerdot 5}+ \cdots \\&= 3+ \sum_{n=2}^{\infty} \frac{(-1)^n}{(n-1)n(2n-1)}  \end{aligned}}}$$
+
+This is the faster convergent method for pi.
+
+## Viete's Formula
+
+Viète's formula is the following infinite product of nested radicals representing the mathematical constant π:
+
+$${\displaystyle {\frac {2}{\pi }}={\frac {\sqrt {2}}{2}}\cdot {\frac {\sqrt {2+{\sqrt {2}}}}{2}}\cdot {\frac {\sqrt {2+{\sqrt {2+{\sqrt {2}}}}}}{2}}\cdots }$$
+
+It is named after François Viète (1540–1603), who published it in 1593 in his work Variorum de rebus mathematicis responsorum, liber VIII
+
+Viète's formula may be rewritten and understood as a limit expression
+
+$${\displaystyle \lim _{n\rightarrow \infty }\prod _{i=1}^{n}{\frac {a_{i}}{2}}={\frac {2}{\pi }}}$$
+
+where $a_n = \sqrt{2 + a_{n − 1}}$, with initial condition $a_1 = √2$.
+
+Viète's formula may be obtained as a special case of a formula given more than a century later by Leonhard Euler, who discovered that:
+
+$${\displaystyle {\frac {\sin x}{x}}=\cos {\frac {x}{2}}\cdot \cos {\frac {x}{4}}\cdot \cos {\frac {x}{8}}\cdots }$$
+
+Substituting
+${\displaystyle x={\frac {\pi }{2}}}$ in this formula yields:
+
+$${\displaystyle {\frac {2}{\pi }}=\cos {\frac {\pi }{4}}\cdot \cos {\frac {\pi }{8}}\cdot \cos {\frac {\pi }{16}}\cdots }$$
+
+Then, expressing each term of the product on the right as a function of earlier terms using the half-angle formula:
+
+$${\displaystyle \cos {\frac {x}{2}}={\sqrt {\frac {1+\cos x}{2}}}}$$
+
+gives Viète's formula.
+
+It is also possible to derive from Viète's formula a related formula for π that still involves nested square roots of two, but uses only one multiplication:[^12]
+
+$${\displaystyle \pi =\lim _{k\to \infty }2^{k}\underbrace {\sqrt {2-{\sqrt {2+{\sqrt {2+{\sqrt {2+{\sqrt {2+\cdots +{\sqrt {2}}}}}}}}}}}} _{k\ \mathrm {square} \ \mathrm {roots} }}$$
+
+[^12]:https://en.wikipedia.org/wiki/Viète%27s_formula#cite_note-servi-12

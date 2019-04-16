@@ -7,7 +7,7 @@ import math
 
 EPSON = 1e-4 # default 4 precision
 
-def wallis_pi(upper):
+def wallis_pi_max(upper):
     '''
     suppose sin(x) = c*(1-x/(kπ))(1+x/(kπ))x (k=-1,+1, -2,+2, ...)
     c=1
@@ -36,36 +36,38 @@ def wallis_pi(upper):
     #print("upper= ", upper, "π/2= ", k)
     #print("upper= ", upper, "π= ", 2.0*k)
 
-def get_wallis_pi(eps=EPSON):
+def wallis_pi(eps=EPSON):
     """
     elapsed time= 3.283482266000192 epson= 1e-07 π= 3.1415925 535897995
     elapsed time= 23.4369514670002 epson= 1e-08 π= 3.1415926 43589793
     """
     k, i = 1, 1
     while (abs(2.0*k-math.pi) > eps) and (i<1e9):
-        k = k*1.0/(1.0-1.0/(4.0*i*i))
+        k = k*1/(1.0-1.0/(4*i*i))
         i += 1
-    print("times= ", i)
-    return 2.0*k
+    return (2.0*k, i)
 
-def test_wallis_pi():
+def test_wallis_pi_max():
     upper=[500,1000,1500,2000,2500,3000,3500,4000,5000,10000,1000000]
     #upper = []
     for max in upper:
         start = timeit.default_timer()
-        mypi = wallis_pi(max)
+        mypi = wallis_pi_max(max)
         stop = timeit.default_timer()
         print('elapsed time=', stop-start, 'n=', max, 'deviations%%=', abs(mypi-math.pi)*1e4, 'π=', mypi)
 
-def test_get_wallis_pi():
+def test_wallis_pi():
     my_epson = EPSON*1e-4 # 4+4=8 decimal place precision is ok, but 9 cannot work.
-    for i in range(4,9):
+    print("=====John Wallis' Product for π=====")
+    for i in range(7,9):
         my_epson = 10**(-i)
         start = timeit.default_timer()
-        my_pi = get_wallis_pi(my_epson)
+        my_pi, n_iter = wallis_pi(my_epson)
         stop = timeit.default_timer()
-        print('elapsed time=', stop-start, 'epson=', my_epson, 'deviations%%=', abs(my_pi-math.pi)*1e4, 'π=', my_pi)
+        print('elapsed time=', stop-start, 'iteration number=', n_iter,
+            'epson=', my_epson, 'deviations%%=', abs(my_pi-math.pi)*1e4, 
+            'π=', my_pi)
 
 if __name__ == '__main__':
     #test_wallis_pi()
-    test_get_wallis_pi()
+    test_wallis_pi()
