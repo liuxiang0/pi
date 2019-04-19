@@ -26,11 +26,11 @@ $\displaystyle\frac{\pi}{8}=\frac{1}{2^{2}-1}+\frac{1}{6^{2}-1}+\frac{1}{10^{2}-
 
 can be written in terms of the binomial coefficients:
 
-$${\begin{align}\displaystyle \frac{\pi}{8}&=\frac{1}{2^{2}-1}+\frac{1}{6^{2}-1}+\frac{1}{10^{2}-1}+\ldots\\ &=\frac{2}{1\cdot 2\cdot 3}+\frac{6}{5\cdot 6\cdot 7}+\frac{10}{9\cdot 10\cdot 11}+\ldots\\ &=\frac{1}{6}\bigg(\frac{C^{2}_{1}}{C^{3}_{3}}+\frac{C^{6}_{1}}{C^{7}_{3}}+\frac{C^{10}_{1}}{C^{11}{3}}+\ldots\bigg) \end{align}}$$
+$${\begin{aligned}\displaystyle \frac{\pi}{8}&=\frac{1}{2^{2}-1}+\frac{1}{6^{2}-1}+\frac{1}{10^{2}-1}+\ldots\\ &=\frac{2}{1\cdot 2\cdot 3}+\frac{6}{5\cdot 6\cdot 7}+\frac{10}{9\cdot 10\cdot 11}+\ldots\\ &=\frac{1}{6}\bigg(\frac{C^{2}_{1}}{C^{3}_{3}}+\frac{C^{6}_{1}}{C^{7}_{3}}+\frac{C^{10}_{1}}{C^{11}{3}}+\ldots\bigg) \end{aligned}}$$
 
 So that we have
 
-$\displaystyle \pi=\frac{4}{3}\bigg(\frac{C^{2}_{1}}{C^{3}_{3}}+\frac{C^{6}_{1}}{C^{7}_{3}}+\frac{C^{10}_{1}}{C^{11}_{3}}+\ldots\bigg) $
+$\displaystyle \pi=\frac{4}{3}\bigg(\frac{C^{2}_{1}}{C^{3}_{3}}+\frac{C^{6}_{1}}{C^{7}_{3}}+\frac{C^{10}_{1}}{C^{11}_{3}}+\ldots\bigg)$
 
 but it is easy to be clever in a hindsight after the fact.
 

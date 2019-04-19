@@ -1,4 +1,4 @@
-# How to calculate mathematics π
+# How to calculate mathematics $π$
 
 ## Taylor's theorem and Taylor series
 
@@ -8,7 +8,7 @@ $$P_n(x)=a_0+a_1(x-a)+a_2(x-a)^2+\cdots+a_n(x-a)^n+R((x-a)^{n+1})$$
 
 approximates to $f(x)$ near $x=a$, where assuming that $f(x)$ is $nth$ differentiable at $x = a$. Therefore $f(x)\approx P_n(x)$, and we try to choose the coefficients $a_n, n=0,1,2,\cdots,n$.  
 
-The Taylor series of a real or complex-valued function $f(x)$ that is infinitely differentiable at a real or complex number $a$ is the power series
+The [Taylor series][TS] of a real or complex-valued function $f(x)$ that is infinitely differentiable at a real or complex number $a$ is the power series
 
 $${\displaystyle f(a)+{\frac {f'(a)}{1!}}(x-a)+{\frac {f''(a)}{2!}}(x-a)^{2}+{\frac {f'''(a)}{3!}}(x-a)^{3}+\cdots ,}$$
 
@@ -16,7 +16,7 @@ where $n!$ denotes the factorial of $n$ and $f^{(n)}(a)$ denotes the $nth$ deriv
 
 $${\displaystyle \sum _{n=0}^{\infty }{\frac {f^{(n)}(a)}{n!}}(x-a)^{n}.}$$
 
-The derivative of order zero of $f$ is defined to be $f$ itself and $(x − a)^0$ and $0!$ are both defined to be 1. When $a = 0$, the series is also called a [Maclaurin series][1].
+The derivative of order zero of $f$ is defined to be $f$ itself and $(x − a)^0$ and $0!$ are both defined to be 1. When $a = 0$, the series is also called a [Maclaurin series][2].
 
 For instance:
 
@@ -34,17 +34,17 @@ The Taylor series of function $e^z$ at $a=0$ is
 
 $${\displaystyle {\begin{aligned}e^z&=\sum _{n=0}^{\infty }{\frac {z^{n}}{n!}}\\&={\frac {z^{0}}{0!}}+{\frac {z^{1}}{1!}}+{\frac {z^{2}}{2!}}+{\frac {z^{3}}{3!}}+{\frac {z^{4}}{4!}}+{\frac {z^{5}}{5!}}+\cdots \\&=1+z+{\frac {z^{2}}{2}}+{\frac {z^{3}}{6}}+{\frac {z^{4}}{24}}+{\frac {z^{5}}{120}}+\cdots .\end{aligned}}}$$
 
- Let $z=ix$,
+ Let $z=ix$, where $i$ is imaginary unit, which satisfied $i^{4k+2}=-1, i^{4k+3}=-i, i^{4k}=1, i^{4k+1}=i$.
 
- left=$e^{ix}=cos(x)+i sin(x)$  
- right=$1+i x-\frac{x^2}{2!}-i \frac{x^3}{3!}+\frac{x^4}{4!}+i \frac{x^5}{5!}-\frac{x^6}{6!}-i \frac{x^7}{7!}+\cdots .$
+ left side means $e^{ix}=cos(x)+i sin(x)$  
+ right side equals to ${\displaystyle {\begin{aligned} 1+ix-\frac{x^2}{2!}-i \frac{x^3}{3!}+\frac{x^4}{4!}+i \frac{x^5}{5!}-\frac{x^6}{6!}-i \frac{x^7}{7!}+\cdots .\end{aligned}}}$
 
 Therefore
 
 $$cos(x) = 1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+\cdots .$$
 $$sin(x) = x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\cdots .$$
 
-The above sums are the taylor series summary for function $cos(x)$ and $sin(x)$. (they have the following **Maclaurin series**, for all $x$)
+The above sums are the taylor series sum for function $cos(x)$ and $sin(x)$. (they have the following **[Colin Maclaurin series][Maclaurin]**, for all $x$)
 
 $${\displaystyle {\begin{aligned}cos(x)&=\sum _{n=0}^{\infty }{\frac {(-1)^nx^{2n}}{(2n)!}}\\&={1}-{\frac {x^{2}}{2!}}+{\frac {x^{4}}{4!}}-{\frac {x^{6}}{6!}}+\cdots  .\end{aligned}}}$$
 
@@ -52,39 +52,44 @@ $${\displaystyle {\begin{aligned}sin(x)&=\sum _{n=0}^{\infty }{\frac {(-1)^nx^{2
 
 Of course, we can use Taylor expansion to get the above formula.
 
-$$sin^{(2k)}(x)= \frac{d^{(2k)}sin(x)}{dx}=(-1)^k sin(x), sin^{(2k+1)}(x)=(-1)^k cos(x)$$
+$$sin^{(2k)}(x)= \frac{d^{(2k)}sin(x)}{dx}=(-1)^k sin(x)$$
 
-The even-th derivative function of $sin(x)$ at $x=0$ equals to 0, and odd-th derivative function of $sin(x)$ at $x=0$ equals to $(-1)^k$  
+$$sin^{(2k+1)}(x)=(-1)^k cos(x)$$
+
+The even-th derivative function of $sin(x)$ at $x=0$ equals to 0, and odd-th derivative function of $sin(x)$ at $x=0$ equals to $(-1)^k$ 
 
 ## Polynomial approximation theorem
 
-How to solve the quation $sin(x)=0$?
+**Question**: How to solve the quation $sin(x)=0$?
 
 1. First, $sin(x)=0$ has the solution $\{kπ，k=0,\pm 1,\pm 2, \cdots .\}$
 
 2. According to the fundamental theorem of algebra (polynomial approximation theorem) , Let's suppose $sin(x)$ is a polynomial.
 
-$$sin(x) \approx c*\prod_{k=1}^{\infty} (kπ-x)(kπ+x)x $$
-$$\frac{sin(x)}{x} \approx c*\prod_{k=1}^{\infty} (kπ-x)(kπ+x)$$
+$$sin(x) = c*\prod_{k=1}^{\infty} (kπ-x)(kπ+x)x $$
+$$\frac{sin(x)}{x} = c*\prod_{k=1}^{\infty} (kπ-x)(kπ+x)$$
+
 Now limit at x tends to 0, we shall get
 
 $$c=\frac{1}{π^2} * \prod_{k=1}^{\infty} \frac {1}{k^2} $$
 
 Therefore we got
 
-$${\displaystyle {\begin{aligned} sin(x) &= x {\prod_{k=1} ^{\infty} ({1- \frac{x}{kπ})} (1+ \frac{x}{kπ})} \\&= x \prod_{k=1} ^{\infty} (1- \frac{x^2}{(kπ)^2}) \end{aligned}}}$$
+$${\displaystyle {\begin{aligned} sin(x) &= x {\prod_{k=1} ^{\infty} ({1- \frac{x}{kπ})} (1+ \frac{x}{kπ})} \\&= x \prod_{k=1} ^{\infty} [1- \frac{x^2}{(kπ)^2}] \end{aligned}}}$$
 
 Let $x = \frac{π}{2}$, we get  
 
-$${\displaystyle {\begin{aligned} \frac{π}{2} &= \prod_{k=1} ^{\infty} \frac{4k^2}{4k^2-1} \\&= \prod_{k=1} ^{\infty} \frac{1}{1- \frac{1}{4k^2}} \\&=\frac{2}{1} \centerdot \frac{2}{3} \centerdot \frac{4}{3} \centerdot \frac{4}{5} \centerdot \frac{6}{5} \centerdot \frac{6}{7} \cdots \\&=\frac{4}{3} \centerdot \frac{16}{15} \centerdot \frac{36}{35} \centerdot \frac{64}{63} \cdots \end{aligned}}}$$
+$${\displaystyle {\begin{aligned} \frac{π}{2} &= \prod_{k=1} ^{\infty} \frac{2k}{2k-1} \centerdot \frac{2k}{2k+1}   \\&= \prod_{k=1} ^{\infty} \frac{1}{1- \frac{1}{4k^2}} \\&=\frac{2}{1} \centerdot \frac{2}{3} \centerdot \frac{4}{3} \centerdot \frac{4}{5} \centerdot \frac{6}{5} \centerdot \frac{6}{7} \cdots \\&=\frac{4}{3} \centerdot \frac{16}{15} \centerdot \frac{36}{35} \centerdot \frac{64}{63} \cdots \end{aligned}}}$$
 
-see also [John Wallis product for π](https://en.wikipedia.org/wiki/Wallis_product)
+see also [John Wallis' product for $π$][Wallis]
 
-For the same reason,
+Similarly, we can get
 
 $${\displaystyle {\begin{aligned}cos(x)&=\prod_{k=1} ^{\infty} {(1 - \frac{2x}{(2k-1)π})} {(1 + \frac{2x}{(2k-1)π})}\\&=x \prod_{k=1} ^{\infty} {(1-\frac{4x^2}{(2k-1)^2 π^2})} \end{aligned}}}$$
 
-## Euler identify
+$${\displaystyle {\begin{aligned} tan(x)&=\frac{x}{\frac{\pi}{4}} \centerdot \prod_{k=1} ^{\infty} \frac{1 - \frac{x}{kπ}}{1-\frac{1}{4k}} \centerdot \frac{1 + \frac{x}{kπ}}{1+\frac{1}{4k}}\end{aligned}}}$$
+
+## Euler identity
 
 1. From Taylor expansion, we get
 
@@ -108,7 +113,7 @@ The series for the **inverse tangent** function, which is also known as **Gregor
 
 $${\displaystyle \arctan x=x-{\frac {x^{3}}{3}}+{\frac {x^{5}}{5}}-{\frac {x^{7}}{7}}+\cdots }$$.
 
-The **Leibniz formula** for **π/4** can be obtained by putting $x = 1$ into the above inverse-tangent series.
+The **Leibniz formula** for **$π$/4** can be obtained by putting $x = 1$ into the above inverse-tangent series.
 
 $$\frac{\pi}{4} = \sum_{n=0}^{\infty}\frac{(-1)^n}{2n+1} = \frac{1}{1}- \frac{1}{3}+ \frac{1}{5}- \frac{1}{7}+ \cdots.$$
 
@@ -116,25 +121,23 @@ As you can see, this converges very slowly, with large, alternating over-estimat
 
 ## Nilakantha Series
 
-![Nilakantha Series for pi](Nilakantha_pi.jpg)
-
 $${\displaystyle {\begin{aligned} {\pi} &= 3+ \frac{4}{2 \centerdot 3 \centerdot 4}- \frac{4}{4 \centerdot 5 \centerdot 6}+ \frac{4}{6 \centerdot 7 \centerdot 8}- \frac{4}{8 \centerdot 9 \centerdot 10}+ \cdots \\&= 3+ \frac{1}{1 \centerdot 3 \centerdot 2}- \frac{1}{2 \centerdot 5 \centerdot 3}+ \frac{1}{3 \centerdot 7 \centerdot 4}- \frac{1}{4 \centerdot 9 \centerdot 5}+ \cdots \\&= 3+ \sum_{n=2}^{\infty} \frac{(-1)^n}{(n-1)n(2n-1)}  \end{aligned}}}$$
 
 This is the faster convergent method for pi.
 
 ## Viete's Formula
 
-Viète's formula is the following infinite product of nested radicals representing the mathematical constant π:
+Viète's formula is the following infinite product of nested radicals representing the mathematical constant $π$:
 
 $${\displaystyle {\frac {2}{\pi }}={\frac {\sqrt {2}}{2}}\cdot {\frac {\sqrt {2+{\sqrt {2}}}}{2}}\cdot {\frac {\sqrt {2+{\sqrt {2+{\sqrt {2}}}}}}{2}}\cdots }$$
 
-It is named after François Viète (1540–1603), who published it in 1593 in his work Variorum de rebus mathematicis responsorum, liber VIII
+It is named after François Viète (1540–1603), who published it in 1593. 
 
-Viète's formula may be rewritten and understood as a limit expression
+Viète's formula may be rewritten and understood as a limit expression.
 
 $${\displaystyle \lim _{n\rightarrow \infty }\prod _{i=1}^{n}{\frac {a_{i}}{2}}={\frac {2}{\pi }}}$$
 
-where $a_n = \sqrt{2 + a_{n − 1}}$, with initial condition $a_1 = √2$.
+where $a_n = \sqrt{2 + a_{n − 1}}$, with initial condition $a_1 = \sqrt{2}$.
 
 Viète's formula may be obtained as a special case of a formula given more than a century later by Leonhard Euler, who discovered that:
 
@@ -151,8 +154,11 @@ $${\displaystyle \cos {\frac {x}{2}}={\sqrt {\frac {1+\cos x}{2}}}}$$
 
 gives Viète's formula.
 
-It is also possible to derive from Viète's formula a related formula for π that still involves nested square roots of two, but uses only one multiplication:[^12]
+It is also possible to derive from Viète's formula a related formula for $π$ that still involves nested square roots of two, but uses only one multiplication: [ref Viete formula][Viete]
 
 $${\displaystyle \pi =\lim _{k\to \infty }2^{k}\underbrace {\sqrt {2-{\sqrt {2+{\sqrt {2+{\sqrt {2+{\sqrt {2+\cdots +{\sqrt {2}}}}}}}}}}}} _{k\ \mathrm {square} \ \mathrm {roots} }}$$
 
-[^12]:https://en.wikipedia.org/wiki/Viète%27s_formula#cite_note-servi-12
+[Viete]:https://en.wikipedia.org/wiki/Viète%27s_formula#cite_note-servi-12
+[TS]:https://en.wikipedia.org/wiki/Taylor_series
+[Maclaurin]:https://en.wikipedia.org/wiki/Colin_Maclaurin
+[Wallis]:https://en.wikipedia.org/wiki/Wallis_product

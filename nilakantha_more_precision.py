@@ -1,10 +1,11 @@
 #-*-encoding: utf-8 -*-
 
-from decimal import Decimal
+from decimal import Decimal, getcontext
 import itertools as it
 
 Decimal = float
 #from decimal import Decimal  # To use arbitrary precision decimal type
+getcontext().prec=50
 
 def nilakantha_series():
     yield Decimal(3)

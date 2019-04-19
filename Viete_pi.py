@@ -3,45 +3,47 @@
 
 import timeit
 import math
-from math import sqrt
+from math import sqrt, pi
+from decimal import Decimal, getcontext
 #from math import sin,radians,pi
 
-EPSON = 1e-4 # default 4 precision
-math_pi = math.pi
+#Decimal = float
+PI = Decimal('3.1415926535897932384626433832795028841971693993751058209749445923078164062')
+math_pi = pi
 
 def viete_pi_max(upper):
     '''
     sin(x)/x = \\prod_{k=1} ^{\\infty} cos(x/2^k)
     let x = π/2, we get 
-    2/π = (\\sqrt(2)/2 * \\sqrt(2+sqrt(2))/2 *...
+    2/π = \\sqrt(2)/2 * \\sqrt(2+sqrt(2))/2 *...
     from viete formula for 2/pi
     '''
 
-    k = 1 
-    a = sqrt(2)/2
+    K = Decimal(1)
+    a = Decimal(sqrt(2))/Decimal(2)
     for _ in range(1,upper):
-        k = k*a
-        a = sqrt((1+a)/2)
-    return 2.0/k
+        K = Decimal(K)*Decimal(a)
+        a = Decimal(sqrt((Decimal(1)+a)/Decimal(2)))
+    return Decimal(2)/K
 
-def viete_pi(eps=EPSON):
+def viete_pi(eps):
     """The most fastest algorithm for pi
-    Very good ratio of convergence
+    This Viete's formula with very good ratio of convergent.
+    Return: (PI, Iterations)
     """
-    s, i = 1, 1
-    a = sqrt(2)/2
+    s, a, i = 1, sqrt(2)/2, 1
     while (abs(2.0/s-math_pi) > eps) and (i<1e9):
         s = s*a
-        a = sqrt((1+a)/2)
+        a = sqrt((1+a)/2.0)
         i += 1
     return (2.0/s, i)
 
-def viete_pi2(eps=EPSON):
+def viete_pi2(eps):
     """The most fastest algorithm for pi
-    Very good ratio of convergence
+    The Viete's formula with Very good ratio of convergent.
+    Return: (PI, Iterations)
     """
-    s, i = 1, 1
-    a = sqrt(2)
+    s, a, i = 1, sqrt(2), 1
     while (abs(2.0/s-math_pi) > eps) and (i<1e9):
         s = s*a/2
         a = sqrt(2+a)
@@ -49,13 +51,19 @@ def viete_pi2(eps=EPSON):
     return (2.0/s, i)
 
 def test_viete_pi_max():
-    upper=[500,1000,1500,2000,2500,3000,3500,4000,5000,10000,1000000]
-    #upper = []
+    """
+    Elapsed time= 0.00019323099968460156 Iterations= 20 π=3.1415926535850937639793301
+    Elapsed time= 0.00012897000033262884 Iterations= 30 π=3.1415926535897953364440127
+    Elapsed time= 0.00016460000006190967 Iterations= 40 π=3.1415926535897988891576915
+    Elapsed time= 0.00019978000000264728 Iterations= 50 π=3.1415926535898019977821605
+    Elapsed time= 0.00039245399966603145 Iterations= 100 π=3.1415926535898197613505545
+    """
+    upper=[20,30,40,50,100]
     for max in upper:
         start = timeit.default_timer()
-        mypi = viete_pi_max(max)
+        my_pi = viete_pi_max(max)
         stop = timeit.default_timer()
-        print('elapsed time=', stop-start, 'n=', max, 'deviations%%=', abs(mypi-math.pi)*1e4, 'π=', mypi)
+        print('Elapsed time=', stop-start, 'Iterations=', max, 'π=%.25f'%my_pi)
 
 def test_viete_pi():
     """
@@ -70,14 +78,14 @@ def test_viete_pi():
     elapsed time= 2.0431999928405276e-05 iteration number= 25 epson= 1e-14 deviations%%= 3.9968028886505635e-11 π= 3.141592653589789
     """
     print("=====Viete Formula for 2/π=====")
-    for i in range(7,15):
+    for i in range(14,17):
         my_epson = 10**(-i)
         start = timeit.default_timer()
         my_pi, n_iter = viete_pi2(my_epson)
         stop = timeit.default_timer()
-        print('elapsed time=', stop-start, 'iteration number=', n_iter,
-            'epson=', my_epson, 'deviations%%=', abs(my_pi-math.pi)*1e4, 
-            'π=', my_pi)
+        print('Elapsed time=', stop-start, 'Iterations=', n_iter,
+            'Epson=', my_epson, 'π=', my_pi) # 'Deviations%%=', abs(my_pi-math_pi)*1e4,
 
 if __name__ == '__main__':
     test_viete_pi()
+    #test_viete_pi_max()
