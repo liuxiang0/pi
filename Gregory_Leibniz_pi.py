@@ -50,7 +50,7 @@ def test_Leibniz_iter():
         print("Iterations={N}, PI={Pi}".format(N=n, pi=Leibniz_iter(n)))
 
 
-def Leibniz_epson(eps):
+def Leibniz_epson(eps, limit=float("inf")):
     '''
     π = 4*(1-1/3+1/5-1/7+1/9-1/11+...)
     Gregory-Leibniz Series sum
@@ -66,7 +66,7 @@ def Leibniz_epson(eps):
     #    s += 1.0/i - 1.0/(i+2)
     '''
     a = series_for_reciprocal_of_odd()
-    while (abs(4*s-math_pi) > eps) and (i < 1e9):
+    while (abs(4*s-math_pi) > eps) and (i < limit):
         s += k * next(a)
         k = -k
         i += 1

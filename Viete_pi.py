@@ -36,14 +36,14 @@ def viete_iter(n):
     return 2/K
 
 
-def viete_epson(eps):
+def viete_epson(eps, limit=float("inf")):
     '''The most fastest algorithm for pi
     This Viete's formula with very good ratio of convergent.
     Return: (PI, Iterations)
     '''
     s, i = 1, 1
     a = sqrt2_series()
-    while (abs(2/s-math_pi) > eps) and (i < 1e9):
+    while (abs(2/s-math_pi) > eps) and (i < limit):
         s *= next(a)/2
         i += 1
     return (2/s, i)

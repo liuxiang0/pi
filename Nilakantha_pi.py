@@ -27,7 +27,7 @@ def nilakantha_iter(n):
     return 3+s
 
 
-def nilakantha_epson(eps):
+def nilakantha_epson(eps, limit=float("inf")):
     '''
     pi = 3+4/(2*3*4)-4*/(4*5*6)+4/(6*7*8)-4/(8*9*10)-...
        = 3 + sum{(-1)**(i/2+1)*4.0/(i*(i+1)*(i+2))}    # 收敛较快
@@ -37,7 +37,7 @@ def nilakantha_epson(eps):
     '''
     s, k, i = 3, 1, 1
     a = nilakantha_series()
-    while (abs(s - math_pi) > eps) and (i < 1e9):
+    while (abs(s - math_pi) > eps) and (i < limit):
         s += k * next(a)
         k = -k
         i += 1

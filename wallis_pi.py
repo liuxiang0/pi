@@ -34,10 +34,10 @@ def wallis_iter(n):
     return 2*k
 
 
-def wallis_epson(eps):
+def wallis_epson(eps, limit=float("inf")):
     k, i = 1, 1
     a = wallis_series()
-    while (abs(2*k-math_pi) > eps) and (i < 1e9):
+    while (abs(2*k-math_pi) > eps) and (i < limit):
         k *= next(a)
         i += 1
     return (2*k, i)
