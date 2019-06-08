@@ -5,6 +5,9 @@ Algorithms of Gregory-Leibniz series sum for calculating PI
 PI/4=1-1/3+1/5-1/7+...
 1. Iterations: Leibniz_iter(n)
 2. Epson     : Leibniz_epson(eps)
+
+Discussion:
+    "if you want to get the error (epson) 10^(-n), you should iterated 10^n."
 """
 
 
@@ -12,7 +15,6 @@ import timeit
 import math
 
 math_pi = math.pi
-
 
 def reciprocal_of_odd(n):
     # series for reciprocal of an odd number: 1, -1/3,1/5,-1/7,...
@@ -43,11 +45,15 @@ def Leibniz_iter(n):
 
 
 def test_Leibniz_iter():
-    nList = [1e4, 1e6, 1e8]
+    log_nlist = range(4, 10, 2)  # don't greater than 8
     print("==Gregory Leibniz Series Generator with Iterations for PI==")
-    for n in nList:
-        n = int(n)
-        print("Iterations={N}, PI={Pi}".format(N=n, pi=Leibniz_iter(n)))
+    #global math_pi
+    for log_n in log_nlist:
+        n = 10**log_n
+        res = Leibniz_iter(n)
+        epson = abs(res - math_pi)
+        print("Iterations=10^{N}, PI={Pai}, Epson={E}~10^{LE}".format(\
+                N=log_n, Pai=res, E=epson, LE=round(math.log10(epson))) )
 
 
 def Leibniz_epson(eps, limit=float("inf")):
@@ -65,6 +71,7 @@ def Leibniz_epson(eps, limit=float("inf")):
     #for i in range(1, up, 4): # odd number, period is 4.
     #    s += 1.0/i - 1.0/(i+2)
     '''
+    #global math_pi
     a = series_for_reciprocal_of_odd()
     while (abs(4*s-math_pi) > eps) and (i < limit):
         s += k * next(a)
@@ -76,13 +83,13 @@ def Leibniz_epson(eps, limit=float("inf")):
 
 def test_Leibniz_epson():
     print("===Gregory Leibniz series sum for PI with epson===")
-    for j in range(7, 9):
+    for j in range(7, 9):  # don't greater than 8
         epson = 10**(-j)
         start = timeit.default_timer()
         mypi, n_iter = Leibniz_epson(epson)
         stop = timeit.default_timer()
-        print('Elapsed(s)={T}, Iterations={N}, Epson={Eps}, PI={Pi}'.format(
-            T=stop-start, N=n_iter, Eps=epson, Pi=mypi))
+        print('Elapsed(s)={T}, Iterations={N}~10^{NL}, Epson={Eps}, PI={Pai}'.format(
+            T=stop-start, N=n_iter, NL=round(math.log10(n_iter)), Eps=epson, Pai=mypi))
 
 
 if __name__ == '__main__':
